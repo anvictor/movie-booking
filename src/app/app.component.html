@@ -1,20 +1,69 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div *ngIf="searchVisible" class="ten_movies">
+  <header>
+    <div class="menu">
+      <span class="filterBtn" (click)="filter('Comedy')">Comedy</span>
+      <span class="filterBtn" (click)="filter('Action')">Action</span>
+      <span class="filterBtn" (click)="filter('Adventure')">Adventure</span>
+      <span class="filterBtn" (click)="filter('Crime')">Crime</span>
+      <span class="filterBtn" (click)="filter('Drama')">Drama</span>
+      <span class="filterBtn" (click)="filter('All')">All</span>
+    </div>
+    <input class="search" type="text" placeholder="Search movie...">
+  </header>
+  <h1>Movies</h1>
+  <div class="lineFlexWrap">
+    <div  (click)="movieClicked(movie)" *ngFor="let movie of movies" class="movie small">
+      <img src="{{movie.img}}" alt="{{movie.description}}">
+    </div>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="buy_place" *ngIf="buyVisible">
+  <div class="ten_movies">
+  <header>
+    <div class="menu">
+      <span class="filterBtn" (click)="hide('Comedy')">Comedy</span>
+      <span class="filterBtn" (click)="hide('Action')">Action</span>
+      <span class="filterBtn" (click)="hide('Adventure')">Adventure</span>
+      <span class="filterBtn" (click)="hide('Crime')">Crime</span>
+      <span class="filterBtn" (click)="hide('Drama')">Drama</span>
+      <span class="filterBtn" (click)="hide('All')">All</span>
+    </div>
+    <input class="search" type="text" placeholder="Search movie...">
+  </header>
 
+  <div  class="movie large">
+    <h1>Description</h1>
+    <div class="lineFlex">
+    <img src="{{movie.img}}" alt="{{movie.description}}">
+    <div class="details">
+    <h2>{{movie.title}}</h2>
+    <i> {{movie.description}} </i>
+    <p>Початок: {{movie.startTime}} </p>
+    <p>Тривалість: {{movie.duration}} </p>
+    <p>Рік виходу: {{movie.dateOfRelease}} </p>
+    <h3>Ціна квитка: {{movie.ticketPrice}} </h3>
+    </div>
+    </div>
+  </div>
+  </div>
+  <div class="buy">
+    <h1>Buy ticket</h1>
+    <div class="hiddenData">{{movie.id}}</div>
+    <div class="hall">
+    <div class="row" *ngFor="let row of loaded[movie.id]; let r = index">
+      <span class="rowTitle"> ряд {{r+1}} </span>
+      <div id="R{{r+1}};S{{s+1}}"
+           [ngStyle]="{'backgroundColor':getColor(
+            loaded[movie.id][r][s]
+           )}"
+           (click)="setClicked($event)"
+           class="set" *ngFor="let set of loaded[movie.id][r]; let s = index">{{s+1}}
+      </div>
+    </div>
+    </div>
+    <div class="buttonsLine">
+      <button (click)="buy()" class="btn primary">Buy</button>
+      <button (click)="clear()" class="btn secondary">Clear</button>
+    </div>
+  </div>
+</div>

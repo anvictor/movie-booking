@@ -1,0 +1,140 @@
+*{
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-family: sans-serif;
+  /*border: solid 1px red;*/
+}
+body{
+  background-color: #6d6d6d;
+}
+header{
+  height: 72px;
+  background-color: #777777;
+  color: white;
+  display: flex;
+}
+.menu{
+  align-self: center;
+  margin: 0px 0px 0px 148px;
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
+  text-decoration: underline;
+}
+.search{
+  width: 173px;
+  height: 35px;
+  align-self: center;
+  border: solid 2px #444444;
+  border-radius: 15px;
+  padding: 5px;
+}
+.btn{
+  width: 173px;
+  height: 35px;
+  align-self: center;
+  border: solid 2px #444444;
+  border-radius: 15px;
+  padding: 5px;
+  outline: none;
+  cursor: pointer;
+}
+.btn:hover{
+  background-color: #5C9ADE;
+}
+.primary{
+  background-color: #ff6347;
+}
+.secondary{
+  background-color: #ff546d;
+}
+.buttonsLine{
+  display: flex;
+  justify-content: center;
+}
+.filterBtn{
+  margin: auto;
+  cursor: pointer;
+}
+h1{
+  color: #444444;
+  margin-left: 124px;
+}
+.ten_movies{
+  width: 1026px;
+  height: 702px;
+  margin: 120px auto;
+  background-color: #ffffff;
+  border: solid 1px grey;
+}
+img{
+  width: 100%;
+  height: 100%;
+}
+.lineFlexWrap{
+  margin: auto;
+  width: 830px;
+  height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.lineFlex{
+  margin: auto;
+  width: 830px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+}
+.hall{
+  padding: 30px 34px;
+  margin: 100px auto;
+  width: 417px;
+  height: 296px;
+  border: solid 4px #777777;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.small{
+
+  width: 150px;
+  height: 184px;
+  cursor: pointer;
+}
+.large{
+  width: 100%;
+}
+.row{
+  display: flex;
+  justify-content: space-between;
+}
+.rowTitle{
+  align-self: center;
+  width: 50px;
+}
+.set{
+  display: flex;
+  justify-content: center;
+  padding-top: 5px;
+  margin: 5px;
+  border: solid 1px grey;
+  border-radius: 30px;
+  width: 30px;
+  height: 28px;
+  cursor: pointer;
+}
+.buy{
+  width: 1026px;
+  height: 702px;
+  margin: -120px auto;
+  background-color: #ffffff;
+  border: solid 1px grey;
+}
+.details{
+  padding: 30px;
+}
+.hiddenData{
+  visibility: hidden;
+}
